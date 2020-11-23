@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    const devtools = {
+    const p34c3_khyrein = {
         isOpen: false,
         orientation: undefined
     };
@@ -9,7 +9,7 @@
     const threshold = 160;
 
     const emitEvent = (isOpen, orientation) => {
-        window.dispatchEvent(new CustomEvent('devtoolschange', {
+        window.dispatchEvent(new CustomEvent('anti-inspect-p34c3-khyrein', {
             detail: {
                 isOpen,
                 orientation
@@ -25,19 +25,19 @@
         if (!(heightThreshold && widthThreshold) &&
             ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)
         ) {
-            if ((!devtools.isOpen || devtools.orientation !== orientation) && emitEvents) {
+            if ((!p34c3_khyrein.isOpen || p34c3_khyrein.orientation !== orientation) && emitEvents) {
                 emitEvent(true, orientation);
             }
 
-            devtools.isOpen = true;
-            devtools.orientation = orientation;
+            p34c3_khyrein.isOpen = true;
+            p34c3_khyrein.orientation = orientation;
         } else {
-            if (devtools.isOpen && emitEvents) {
+            if (p34c3_khyrein.isOpen && emitEvents) {
                 emitEvent(false, undefined);
             }
 
-            devtools.isOpen = false;
-            devtools.orientation = undefined;
+            p34c3_khyrein.isOpen = false;
+            p34c3_khyrein.orientation = undefined;
         }
     };
 
@@ -45,9 +45,9 @@
     setInterval(main, 500);
 
     if (typeof module !== 'undefined' && module.exports) {
-        module.exports = devtools;
+        module.exports = p34c3_khyrein;
     } else {
-        window.devtools = devtools;
+        window.p34c3_khyrein = p34c3_khyrein;
     }
 })();
 
@@ -111,11 +111,10 @@ var value_setelah_inspek = `
 lho koq ilang :V <br>
 Browser ${getBrowser()} elu nggak mempan inspek gua :V <br>
 Source bY <a href="https://p34c3-khyrein.linuxploit.com">P34C3_KHYREIN</a>
-
 `;
 
 //anti inspect element
-if (window.devtools.isOpen) {
+if (window.p34c3_khyrein.isOpen) {
     try {
         console.log('mampuzzz :V');
         document.querySelector("html").remove();
@@ -124,7 +123,7 @@ if (window.devtools.isOpen) {
         //kosong
     }
 }
-window.addEventListener('devtoolschange', event => {
+window.addEventListener('anti-inspect-p34c3-khyrein', event => {
     try {
         console.log('mampuzzz :V');
         document.querySelector("html").remove();
